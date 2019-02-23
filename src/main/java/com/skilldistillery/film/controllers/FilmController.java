@@ -26,8 +26,8 @@ public class FilmController {
 	@RequestMapping(path = "FilmbyId.do", params = "filmId", method = RequestMethod.GET)
 	public ModelAndView getFilmById(int filmId) throws SQLException {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("WEB-INF/result.jsp");
 		mv.addObject("film", dbAccessor.findFilmById(filmId));
+		mv.setViewName("WEB-INF/result.jsp");
 
 		return mv;
 	}
