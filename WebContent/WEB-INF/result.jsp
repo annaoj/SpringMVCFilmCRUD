@@ -8,6 +8,7 @@
 <title>Film</title>
 </head>
 <body>
+	<!-- Need to make changes to this block -->
 	<c:choose>
 		<c:when test="${! empty film}">
 			<ul>
