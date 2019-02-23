@@ -31,8 +31,4 @@
 		<servlet-name>springDispatcherServlet</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
-<<<<<<< HEAD
-=======
-
->>>>>>> e1d1e4bb1ca25edaf405c30fa6bca17e81025cbf
 </web-app>
