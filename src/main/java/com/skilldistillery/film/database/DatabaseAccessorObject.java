@@ -258,4 +258,31 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		return filmObj;
 	}
 
+	
+	@Override
+	public boolean deleteFilm(Film film) throws SQLException {
+		Connection conn = null;
+		  try {
+		    conn = DriverManager.getConnection(URL, user, pass);
+		    conn.setAutoCommit(false); // START TRANSACTION
+		    String sql = "DELETE FROM film WHERE id = ?";
+		    PreparedStatement stmt = conn.prepareStatement(sql);
+		    stmt.setInt(1, film.getId());
+		    int updateCount = stmt.executeUpdate();
+
+		    conn.commit();             // COMMIT TRANSACTION
+		  }
+		  catch (SQLException sqle) {
+		    sqle.printStackTrace();
+		    if (conn != null) {
+		      try { conn.rollback(); }
+		      catch (SQLException sqle2) {
+		        System.err.println("Error trying to rollback");
+		      }
+		    }
+		    return false;
+		  }
+		  return true;
+	}
+
 }

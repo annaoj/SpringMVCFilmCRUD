@@ -27,6 +27,10 @@ public class Film {
 		this.category = category;
 	}
 
+	public Film() {
+		
+	}
+	
 	public Film(int id, String title, String description, String release_year, int language_id, int rental_duration,
 			double rental_rate, int length, double replacement_cost, String rating, String special_features,
 			List<Actor> laCast, String language, List<Category> category) {
@@ -83,7 +87,6 @@ public class Film {
 	}
 
 	public Film(String title, int language_id) {
-		super();
 		this.title = title;
 		this.language_id = language_id;
 	}

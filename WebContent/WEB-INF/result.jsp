@@ -25,6 +25,15 @@
 				<li><strong>Replacement Cost: </strong>${film.replacement_cost}</li>
 				<li><strong>Rating: </strong>${film.rating}</li>
 				<li><strong>Special Features: </strong>${film.special_features}</li>
+				<li><input>Edit</input></li>
+				<li>
+		<%-- 			<form action="delete" method="post">
+						<input type="submit" name="delete_user" value="Delete" /> <input
+							type="hidden" name="user" value="<%=rs.getString(1)%>" />
+					</form> --%>
+					 <!-- 				<input type="submit" value="delete"  >Delete</input>
+ -->
+ </li>
 			</ul>
 		</c:when>
 		<c:otherwise>

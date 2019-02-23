@@ -6,7 +6,6 @@ import java.util.List;
 import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Category;
 import com.skilldistillery.film.entities.Film;
-import com.skilldistillery.film.entities.Film2Refactor;
 import com.skilldistillery.film.entities.Inventory;
 
 public interface DatabaseAccessor {
@@ -17,5 +16,6 @@ public interface DatabaseAccessor {
   public List<Category> findCategorybyFilmId(int filmId);
   public List<Inventory> getInventoryAndCondition(int filmId);
   public Film createFilm(Film film) throws SQLException;
+  public boolean deleteFilm(Film film) throws SQLException;
   
 }

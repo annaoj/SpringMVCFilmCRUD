@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.film.database.DatabaseAccessor;
 import com.skilldistillery.film.entities.Film;
@@ -33,38 +32,37 @@ public class FilmController {
 
 		return mv;
 	}
-
-	@RequestMapping(path = "addFilm.do", method = RequestMethod.POST)
-	public String createFilm(Film film, RedirectAttributes redir) throws SQLException {
+//	@RequestMapping(path="addFilm.do", method=RequestMethod.POST)
+//	public String createFilm(Film film) {
+//		System.out.println("*************************************");
+//		System.out.println(film);
+////		Film filmObj;
+//		try {
+//			dbAccessor.createFilm(film);
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+////			e.printStackTrace();
+//			System.out.println("Errorr");
+//		}
+////		if(filmObj.getTitle() == null || "".equals(filmObj.getTitle())) {
+////			System.out.println("Errorr");
+////			return  "";
+////		}
+//		return "WEB-INF/result.jsp";
+//	  
+//
+//	}
+ 
+	@RequestMapping(path="addFilm.do", method=RequestMethod.POST)
+	public String createFilm(Film film) throws SQLException {
 		System.out.println("*************************************");
 		System.out.println(film);
 		dbAccessor.createFilm(film);
-		
-		redir.addFlashAttribute("film", film);
-
-		return "redirect:filmCreated.do";
+	  
+		return "WEB-INF/result.jsp";
 	}
-
-	@RequestMapping("filmCreated.do")
-	public ModelAndView filmCreated() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("WEB-INF/result.jsp");
-		return mv;
-
-	}
-//	@RequestMapping(path = "FilmbyId.do", params = "filmId", method = RequestMethod.GET)
-//	public ModelAndView getFilmById(@Valid int filmId, Errors errors) throws SQLException {
-//		ModelAndView mv = new ModelAndView();
-//		Film filmResponse = dbAccessor.findFilmById(filmId);
-//		if (filmResponse == null) {
-//			errors.rejectValue("filmId", "error.filmId", "Film Id not found");
-//
-//		} else {
-//			mv.addObject("film", dbAccessor.findFilmById(filmId));
-//			mv.setViewName("WEB-INF/result.jsp");
-//
-//		}
-//		return mv;
-//	}
 
 }
+
+
+
