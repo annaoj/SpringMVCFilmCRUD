@@ -2,11 +2,8 @@ package com.skilldistillery.film.controllers;
 
 import java.sql.SQLException;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -39,7 +36,10 @@ public class FilmController {
 
 	@RequestMapping(path = "addFilm.do", method = RequestMethod.POST)
 	public String createFilm(Film film, RedirectAttributes redir) throws SQLException {
+		System.out.println("*************************************");
+		System.out.println(film);
 		dbAccessor.createFilm(film);
+		
 		redir.addFlashAttribute("film", film);
 
 		return "redirect:filmCreated.do";

@@ -6,6 +6,7 @@ import java.util.List;
 import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Category;
 import com.skilldistillery.film.entities.Film;
+import com.skilldistillery.film.entities.Film2Refactor;
 import com.skilldistillery.film.entities.Inventory;
 
 public interface DatabaseAccessor {
