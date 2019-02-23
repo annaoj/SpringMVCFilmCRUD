@@ -17,7 +17,7 @@
 			</ul>
 		</c:when>
 		<c:otherwise>
-			<p>No state found</p>
+			<p>No film found</p>
 		</c:otherwise>
 	</c:choose>
 </body>
