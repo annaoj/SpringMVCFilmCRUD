@@ -3,7 +3,12 @@ package com.skilldistillery.film.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Film {
+	@NotNull
+	@Size(min=1)
 	private int id;
 	private String title; 
 	private String description;   
