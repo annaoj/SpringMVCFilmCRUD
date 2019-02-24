@@ -34,30 +34,37 @@ public class FilmController {
 
 		return mv;
 	}
- 
-	@RequestMapping(path="addFilm.do", method=RequestMethod.POST)
+
+	@RequestMapping(path = "addFilm.do", method = RequestMethod.POST)
 	public String createFilm(Film film) throws SQLException {
 		dbAccessor.createFilm(film);
-	  
+
 		return "WEB-INF/result.jsp";
 	}
-	
-	@RequestMapping(path="deleteFilm.do",  params = "filmId",method = RequestMethod.POST)
-	public ModelAndView deleteFilm( int filmId)  throws SQLException {
+
+	@RequestMapping(path = "deleteFilm.do", params = "filmId", method = RequestMethod.POST)
+	public ModelAndView deleteFilm(int filmId) throws SQLException {
 		ModelAndView mv = new ModelAndView();
 		boolean isSuccessful = dbAccessor.deleteFilm(filmId);
 		mv.addObject("removed", isSuccessful);
 		mv.setViewName("WEB-INF/result.jsp");
 		System.out.println(isSuccessful + "resssssssssssssss");
-		if(!isSuccessful) {
+		if (!isSuccessful) {
 			System.out.println(isSuccessful + "53resssssssssssssss");
 
 			return null;
 		}
-		return mv;   
+		return mv;
 	}
 
+	@RequestMapping(path = "", method = RequestMethod.POST)
+	public String editFilm(Film film) throws SQLException {
+		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"); // For testing
+		System.out.println(film);
+
+		dbAccessor.saveFilm(film);
+
+		return "WEB-INF/result.jsp";
+
+	}
 }
-
-
-
