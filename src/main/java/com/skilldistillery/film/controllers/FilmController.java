@@ -1,9 +1,11 @@
 package com.skilldistillery.film.controllers;
 
 import java.sql.SQLException;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -32,34 +34,27 @@ public class FilmController {
 
 		return mv;
 	}
-//	@RequestMapping(path="addFilm.do", method=RequestMethod.POST)
-//	public String createFilm(Film film) {
-//		System.out.println("*************************************");
-//		System.out.println(film);
-////		Film filmObj;
-//		try {
-//			dbAccessor.createFilm(film);
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-////			e.printStackTrace();
-//			System.out.println("Errorr");
-//		}
-////		if(filmObj.getTitle() == null || "".equals(filmObj.getTitle())) {
-////			System.out.println("Errorr");
-////			return  "";
-////		}
-//		return "WEB-INF/result.jsp";
-//	  
-//
-//	}
  
 	@RequestMapping(path="addFilm.do", method=RequestMethod.POST)
 	public String createFilm(Film film) throws SQLException {
-		System.out.println("*************************************");
-		System.out.println(film);
 		dbAccessor.createFilm(film);
 	  
 		return "WEB-INF/result.jsp";
+	}
+	
+	@RequestMapping(path="deleteFilm.do",  params = "filmId",method = RequestMethod.POST)
+	public ModelAndView deleteFilm( int filmId)  throws SQLException {
+		ModelAndView mv = new ModelAndView();
+		boolean isSuccessful = dbAccessor.deleteFilm(filmId);
+		mv.addObject("removed", isSuccessful);
+		mv.setViewName("WEB-INF/result.jsp");
+		System.out.println(isSuccessful + "resssssssssssssss");
+		if(!isSuccessful) {
+			System.out.println(isSuccessful + "53resssssssssssssss");
+
+			return null;
+		}
+		return mv;   
 	}
 
 }

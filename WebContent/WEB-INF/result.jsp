@@ -16,7 +16,7 @@
 			<ul>
 				<li><strong>Film Id Selected:</strong> ${film.id}</li>
 				<li><strong>Title:</strong> ${film.title}</li>
-				<li><strong>Language Id:</strong> ${film.language_id}</li>
+				<li><strong>Language Id:</strong> ${film.language}</li>
 				<li><strong>Description: </strong>${film.description}</li>
 				<li><strong>Release Year: </strong>${film.release_year}</li>
 				<li><strong>Rental Duration: </strong>${film.rental_rate}</li>
@@ -27,14 +27,15 @@
 				<li><strong>Special Features: </strong>${film.special_features}</li>
 				<li><input>Edit</input></li>
 				<li>
-		<%-- 			<form action="delete" method="post">
-						<input type="submit" name="delete_user" value="Delete" /> <input
-							type="hidden" name="user" value="<%=rs.getString(1)%>" />
-					</form> --%>
-					 <!-- 				<input type="submit" value="delete"  >Delete</input>
- -->
- </li>
+					<form action="deleteFilm.do" method="POST" name="filmId">
+						<input type="text" name="filmId" value="${film.id}" /> DELETE<input
+							type="submit" value="Submit" />
+					</form> 
+				</li>
 			</ul>
+		</c:when>
+		<c:when test="${removed}">
+		<p>Movie is removed</p>
 		</c:when>
 		<c:otherwise>
 			<p>No film found</p>

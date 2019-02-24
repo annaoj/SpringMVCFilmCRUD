@@ -260,14 +260,14 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 	
 	@Override
-	public boolean deleteFilm(Film film) throws SQLException {
+	public boolean deleteFilm(int filmId) throws SQLException {
 		Connection conn = null;
 		  try {
 		    conn = DriverManager.getConnection(URL, user, pass);
 		    conn.setAutoCommit(false); // START TRANSACTION
 		    String sql = "DELETE FROM film WHERE id = ?";
 		    PreparedStatement stmt = conn.prepareStatement(sql);
-		    stmt.setInt(1, film.getId());
+		    stmt.setInt(1, filmId);
 		    int updateCount = stmt.executeUpdate();
 
 		    conn.commit();             // COMMIT TRANSACTION
