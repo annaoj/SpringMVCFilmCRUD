@@ -28,8 +28,9 @@
 				<li><input>Edit</input></li>
 				<li>
 					<form action="deleteFilm.do" method="POST" name="filmId">
-						<input type="text" name="filmId" value="${film.id}" /> DELETE<input
-							type="submit" value="Submit" />
+						<input type="hidden" name="filmId" value="${film.id}" /> 
+						<input
+							type="submit" name="filmId" value="DELETE" />
 					</form> 
 				</li>
 			</ul>
