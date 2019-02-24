@@ -303,7 +303,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 					+ " special_features=?"
 					+ " WHERE id=?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setInt(1, film.getId());
+			stmt.setInt(1, filmId);
 			stmt.setString(2, film.getTitle());
 			stmt.setInt(3, film.getLanguage_id());
 			stmt.setString(4, film.getDescription());
