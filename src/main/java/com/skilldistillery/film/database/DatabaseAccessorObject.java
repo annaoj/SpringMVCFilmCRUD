@@ -290,7 +290,8 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		try {
 			conn = DriverManager.getConnection(URL, user, pass);
 			conn.setAutoCommit(false); // START TRANSACTION
-			String sql = "UPDATE film SET title=?,"
+			String sql = "UPDATE film SET id=?,"
+					+ "title=?, "
 					+ "language_id=?, "
 					+ "description=?, "
 					+ "release_year=?, "
@@ -303,18 +304,18 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 					+ " language=? "
 					+ " WHERE id=?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setString(1, film.getTitle());
-			stmt.setInt(2, film.getLanguage_id());
-			stmt.setString(3, film.getDescription());
-			stmt.setString(4, film.getRelease_year());
-			stmt.setInt(5, film.getRental_duration());
-			stmt.setDouble(6, film.getRental_rate());
-			stmt.setInt(7, film.getLength());
-			stmt.setDouble(8, film.getReplacement_cost());
-			stmt.setString(9, film.getRating());
-			stmt.setString(10, film.getSpecial_features());
-			stmt.setString(11, film.getLanguage());
-			stmt.setInt(12, film.getId());
+			stmt.setInt(1, film.getId());
+			stmt.setString(2, film.getTitle());
+			stmt.setInt(3, film.getLanguage_id());
+			stmt.setString(4, film.getDescription());
+			stmt.setString(5, film.getRelease_year());
+			stmt.setInt(6, film.getRental_duration());
+			stmt.setDouble(7, film.getRental_rate());
+			stmt.setInt(8, film.getLength());
+			stmt.setDouble(9, film.getReplacement_cost());
+			stmt.setString(10, film.getRating());
+			stmt.setString(11, film.getSpecial_features());
+			stmt.setString(12, film.getLanguage());
 			System.out.println("film.getId" + film.getId());
 
 			System.out.println("SQL308" + stmt);

@@ -56,7 +56,7 @@
 				<li><strong>Rating: </strong>${film.rating}</li>
 				<li><strong>Special Features: </strong>${film.special_features}</li>
 <%-- 				<li><strong>Actors: </strong>${film.getLaCast}</li>
-<%--  --%>				<li><strong>Category: </strong>${film.getCategory}</li>
+ 				<li><strong>Category: </strong>${film.getCategory}</li>
  --%>				<li>
 				<li>
 					<form action="editFilm.do" method="GET">
