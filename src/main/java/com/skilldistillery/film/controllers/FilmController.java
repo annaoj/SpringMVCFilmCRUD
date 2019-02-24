@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.film.database.DatabaseAccessor;
 import com.skilldistillery.film.entities.Film;
@@ -48,24 +49,36 @@ public class FilmController {
 		boolean isSuccessful = dbAccessor.deleteFilm(filmId);
 		mv.addObject("removed", isSuccessful);
 		mv.setViewName("WEB-INF/result.jsp");
-		System.out.println(isSuccessful + "resssssssssssssss");
 		if (!isSuccessful) {
-			System.out.println(isSuccessful + "53resssssssssssssss");
-
 			return null;
 		}
 		return mv;
 	}
 
-	@RequestMapping(path = "editFilm.do", method = RequestMethod.POST)
-	public ModelAndView editFilm(Film film) throws SQLException {
+	@RequestMapping(path = "editFilm.do", params = "filmId", method = RequestMethod.GET)
+	public ModelAndView editFilm(Film film, int filmId) throws SQLException {
 		ModelAndView mv = new ModelAndView();
-		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"); // For testing
-		System.out.println(film);
-		mv.addObject("film", dbAccessor.saveFilm(film));
-		mv.setViewName("WEB-INF/result.jsp");
+		Film filmObj = dbAccessor.findFilmById(filmId);
+		System.out.println(filmObj);
+		mv.addObject("film", filmObj);
+		mv.setViewName("WEB-INF/editFilm.jsp");
 
 		return mv;
 
 	}
+	
+	@RequestMapping(path = "saveFilm.do", params = "filmId", method = RequestMethod.POST)
+	public ModelAndView editFilm(Film film,  RedirectAttributes redir) throws SQLException {
+		ModelAndView mv = new ModelAndView();
+		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"); // For testing
+		
+		boolean isSuccessful = dbAccessor.saveFilm(film);
+		System.out.println(isSuccessful + "76");
+		mv.addObject("isFilmUpdated", isSuccessful);
+		mv.setViewName("WEB-INF/editFilmResult.jsp");
+
+		return mv;
+
+	}
+	
 }

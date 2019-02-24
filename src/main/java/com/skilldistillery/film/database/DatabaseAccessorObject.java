@@ -290,7 +290,17 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		try {
 			conn = DriverManager.getConnection(URL, user, pass);
 			conn.setAutoCommit(false); // START TRANSACTION
-			String sql = "UPDATE film SET title=?, language_id=?, description=?, release_year=?, rental_duration=?, rental_rate=?, length=?, replacement_cost=?, rating=?, special_features=?, language=? "
+			String sql = "UPDATE film SET title=?,"
+					+ "language_id=?, "
+					+ "description=?, "
+					+ "release_year=?, "
+					+ "rental_duration=?, "
+					+ "rental_rate=?,"
+					+ " length=?,"
+					+ " replacement_cost=?,"
+					+ " rating=?,"
+					+ " special_features=?,"
+					+ " language=? "
 					+ " WHERE id=?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, film.getTitle());
@@ -301,9 +311,13 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			stmt.setDouble(6, film.getRental_rate());
 			stmt.setInt(7, film.getLength());
 			stmt.setDouble(8, film.getReplacement_cost());
-			stmt.setInt(9, film.getLength());
-			stmt.setString(10, film.getRating());
-			stmt.setInt(3, film.getId());
+			stmt.setString(9, film.getRating());
+			stmt.setString(10, film.getSpecial_features());
+			stmt.setString(11, film.getLanguage());
+			stmt.setInt(12, film.getId());
+			System.out.println("film.getId" + film.getId());
+
+			System.out.println("SQL308" + stmt);
 			int updateCount = stmt.executeUpdate();
 			if (updateCount == 1) {
 				// Replace actor's film list

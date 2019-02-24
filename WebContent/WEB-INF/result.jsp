@@ -25,18 +25,24 @@
 				<li><strong>Replacement Cost: </strong>${film.replacement_cost}</li>
 				<li><strong>Rating: </strong>${film.rating}</li>
 				<li><strong>Special Features: </strong>${film.special_features}</li>
-				<li><input>Edit</input></li>
+				<li>
+				<li>
+					<form action="editFilm.do" method="GET">
+						<input type="hidden" name="filmId" value="${film.id}" />
+						<input type="submit" value="EDIT" />
+					</form>
+
+				</li>
 				<li>
 					<form action="deleteFilm.do" method="POST" name="filmId">
-						<input type="hidden" name="filmId" value="${film.id}" /> 
-						<input
+						<input type="hidden" name="filmId" value="${film.id}" /> <input
 							type="submit" name="filmId" value="DELETE" />
-					</form> 
+					</form>
 				</li>
 			</ul>
 		</c:when>
 		<c:when test="${removed}">
-		<p>Movie is removed</p>
+			<p>Movie is removed</p>
 		</c:when>
 		<c:otherwise>
 			<p>No film found</p>
