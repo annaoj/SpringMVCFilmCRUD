@@ -57,14 +57,15 @@ public class FilmController {
 		return mv;
 	}
 
-	@RequestMapping(path = "", method = RequestMethod.POST)
-	public String editFilm(Film film) throws SQLException {
+	@RequestMapping(path = "editFilm.do", method = RequestMethod.POST)
+	public ModelAndView editFilm(Film film) throws SQLException {
+		ModelAndView mv = new ModelAndView();
 		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"); // For testing
 		System.out.println(film);
+		mv.addObject("film", dbAccessor.saveFilm(film));
+		mv.setViewName("WEB-INF/result.jsp");
 
-		dbAccessor.saveFilm(film);
-
-		return "WEB-INF/result.jsp";
+		return mv;
 
 	}
 }
