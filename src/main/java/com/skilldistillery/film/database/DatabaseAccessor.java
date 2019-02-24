@@ -17,5 +17,6 @@ public interface DatabaseAccessor {
   public List<Inventory> getInventoryAndCondition(int filmId);
   public Film createFilm(Film film) throws SQLException;
   public boolean deleteFilm(int filmId) throws SQLException;
+  public boolean saveFilm(Film film) throws SQLException;
   
 }
