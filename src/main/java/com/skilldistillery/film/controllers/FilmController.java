@@ -69,11 +69,11 @@ public class FilmController {
 	}
 	
 	@RequestMapping(path = "saveFilm.do", params = "filmId", method = RequestMethod.POST)
-	public ModelAndView editFilm(Film film,  RedirectAttributes redir) throws SQLException {
+	public ModelAndView editFilm(Film film,int filmId,   RedirectAttributes redir) throws SQLException {
 		ModelAndView mv = new ModelAndView();
 		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"); // For testing
 		
-		boolean isSuccessful = dbAccessor.saveFilm(film);
+		boolean isSuccessful = dbAccessor.saveFilm(film, filmId);
 		System.out.println(isSuccessful + "76");
 		mv.addObject("isFilmUpdated", isSuccessful);
 		mv.setViewName("WEB-INF/editFilmResult.jsp");

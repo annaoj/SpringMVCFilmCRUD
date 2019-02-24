@@ -55,6 +55,10 @@
 				<li><strong>Replacement Cost: </strong>${film.replacement_cost}</li>
 				<li><strong>Rating: </strong>${film.rating}</li>
 				<li><strong>Special Features: </strong>${film.special_features}</li>
+<%-- 				<li><strong>Actors: </strong>${film.getLaCast}</li>
+ 				<li><strong>Category: </strong>${film.getCategory}</li>
+ --%>				
+
 				<li>
 					<form action="editFilm.do" method="GET">
 						<input type="hidden" name="filmId" value="${film.id}" />
