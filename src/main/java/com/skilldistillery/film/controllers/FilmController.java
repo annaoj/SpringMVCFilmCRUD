@@ -1,6 +1,7 @@
 package com.skilldistillery.film.controllers;
 
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,6 +77,18 @@ public class FilmController {
 		System.out.println(isSuccessful + "76");
 		mv.addObject("isFilmUpdated", isSuccessful);
 		mv.setViewName("WEB-INF/editFilmResult.jsp");
+
+		return mv;
+
+	}
+	
+	@RequestMapping(path = "searchFilmByKeyword.do", params = "keyWord", method = RequestMethod.GET)
+	public ModelAndView findfilmByKeyword(String keyWord) throws SQLException {
+		ModelAndView mv = new ModelAndView();
+		List<Film> filmList = dbAccessor.findfilmByKeyword(keyWord);
+		System.out.println(filmList);
+		mv.addObject("filmList", filmList);
+		mv.setViewName("WEB-INF/result.jsp");
 
 		return mv;
 
