@@ -16,23 +16,41 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
-	<h1>Welcome to Filmopedia</h1>
-	<h4>The Free Encyclopedia</h4>
+
 	<div class="container">
 
 
 		<div class="mainsection justify-content-center">
-			<form action="searchFilmByKeyword.do" method="GET">
+			<div class="headerSection text-center">
+				<h1 class="header">Welcome to Filmopedia</h1>
+				<h4 class="header">The Free Encyclopedia of movies</h4>
+			</div>
 
-				<div class="form-group">
-					<label for="exampleInputPassword1">Search</label> <input
-						type="text" class="form-control" name="keyWord"
-						placeholder="keyword in title/description">
+			<div class="searchForm">
+
+				<form action="searchFilmByKeyword.do" method="GET">
+					<div class="form-group">
+						<label class="searchlabel" for="search">Search:</label>
+						<div class="input-group col-xs-12">
+
+							<input type="text" class="form-control" name="keyWord"
+								placeholder="keyword in title/description">
+							<button type="submit" class="submit btn btn-primary">Search</button>
+						</div>
+					</div>
+				</form>
+				<div class="row">
+					<div class="col-sm-4">
+						<a href="filmByIdForm.html">Get Film by ID</a>
+					</div>
+					<div class="col-sm-8">
+						<a href="addFilmForm.html">Add New Film</a>
+					</div>
 				</div>
-				<button type="submit" class="btn btn-primary">Search</button>
-			</form>
-			<br /> <a href="filmByIdForm.html">Get Film by ID</a> <br /> <a
-				href="addFilmForm.html">Add New Film</a>
+
+
+			</div>
+
 
 		</div>
 
