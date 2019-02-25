@@ -10,20 +10,44 @@
 <title>Add Film</title>
 </head>
 <body>
+<h3>Add Film</h3>
 	<form action="saveFilm.do" method="POST" name="filmId">
+	<label>Film ID:</label>
 		<input type="text" name="filmId" value="${film.id}" />
-		Title
+		<br/>
+		<label>Title:</label>
 		 <input
 			type="text" name="title" value="${film.title}"/> 
-			<br> 
-			Description
-			<br> 
-			<input
-			type="text" name="description" value="${film.description}"/> 
-			<br> Release Year<br> 
+			<br>  
+			<label>Description:</label>
+			<td><input
+			type="text" name="description" value="${film.description}"/></td>
+			 <br>
+			<label>Release Year:</label>
 			<input type="text" name="releaseYear" value="${film.release_year}"/> 
 			<br> 
-			<select name="language_id" value="${film.language_id}">
+			<label>Rental Duration:</label>
+			<input type="text" name="rentalRate" value="${film.rental_rate}"/> 
+			<br> 
+			<label>Length:</label>
+			<input type="text" name="length" value="${film.length}"/> 
+			<br> 
+			<label>Replacement Cost:</label>
+			<input type="text" name="replacementCost" value="${film.replacement_cost}"/> 
+			<br> 
+			<label>Rating:</label>
+			<input type="text" name="rating" value="${film.rating}"/> 
+			<br> 
+			<%-- <label>Actors:</label>
+			<input type="text" name="laCast" value="${film.laCast}"/> 
+			<br>  --%>
+			<select name="language_id" value="${film.language_id}"> 
+			<label>Language:</label>
+			<%-- <input type="text" name="language" value="${film.language}"/> 
+			<br>  --%>
+			 <%-- <label>Category:</label>
+			<input type="text" name="category" value="${film.category}"/> 
+			<br>  --%>
 			
 			<!-- <option selected>Language Id</option> -->
 			<option value="1">English</option>
