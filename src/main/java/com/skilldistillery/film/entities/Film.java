@@ -30,7 +30,7 @@ public class Film {
 	public Film() {
 		
 	}
-	
+
 	public Film(int id, String title, String description, String release_year, int language_id, int rental_duration,
 			double rental_rate, int length, double replacement_cost, String rating, String special_features,
 			List<Actor> laCast, String language, List<Category> category) {
@@ -54,6 +54,7 @@ public class Film {
 	public Film(int id, String title, String description, String release_year, int language_id, int rental_duration,
 			double rental_rate, int length, double replacement_cost, String rating, String special_features,
 			List<Actor> laCast) {
+		
 		this.id = id;
 		this.title = title;
 		this.description = description;
