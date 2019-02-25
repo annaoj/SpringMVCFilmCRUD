@@ -2,10 +2,10 @@
 <%@ page session="false"%>
 <html>
 <head>
-    <title>Home</title>
+    <title>Error</title>
 </head>
 <body>
-<p>OOPS error!!!</p>
+<p>OOPS,error!! your input is invalid!!!</p>
     <h1>${errorMsg}</h1>
 </body>
 </html>

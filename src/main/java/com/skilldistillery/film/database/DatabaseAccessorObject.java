@@ -222,9 +222,8 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	}
 
 	@Override
-	public Film createFilm(Film film) throws SQLException {
-		System.out.println("333333333333333333333333333333333333");
-		Film filmObj = null;
+	public boolean createFilm(Film film) throws SQLException {
+
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(URL, user, pass);
@@ -244,24 +243,29 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 					System.out.println(newFilmId + "newfilmid");
 				}
 			} else {
-				filmObj = null;
+				return false;
 			}
 			conn.commit(); // COMMIT TRANSACTION
+			return true;
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 			if (conn != null) {
 				try {
 					conn.rollback();
+					return false;
 				} catch (SQLException sqle2) {
 					System.err.println("Error trying to rollback");
+					return false;
 				}
 			}
-			throw new RuntimeException("Error inserting actor " + film);
-		}finally {
-			return filmObj;
+			//throw new RuntimeException("Error inserting actor " + film);
 		}
+//		finally {
+//			return filmObj;
+//		}
+		return true;
 
-		//return filmObj;
+//		return filmObj;
 	}
 
 	@Override

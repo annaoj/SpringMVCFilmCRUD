@@ -2,13 +2,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+	integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+	crossorigin="anonymous"></script>
 <title>Films</title>
 </head>
 <body>
   <h3>Films</h3>
-  <form action="FilmbyId.do" method="GET">
+  <form  class="form-group" action="FilmbyId.do" method="GET">
     Film ID:
-    <input type="text" name="filmId"/> 
+    <input type="text" required name="filmId"/> 
     <input type="submit" value="Get Film by ID" />
   </form>
 </body>

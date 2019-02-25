@@ -30,6 +30,7 @@ public class FilmController {
 
 	@RequestMapping(path = "FilmbyId.do", params = "filmId", method = RequestMethod.GET)
 	public ModelAndView getFilmById(int filmId) throws SQLException {
+		//System.out.println(filmId + "dfggggggggggggggggggggggggg");
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("film", dbAccessor.findFilmById(filmId));
 		mv.setViewName("WEB-INF/result.jsp");
@@ -38,14 +39,18 @@ public class FilmController {
 	}
 
 	@RequestMapping(path = "addFilm.do", method = RequestMethod.POST)
-	public String createFilm(Film film) throws SQLException {
-		dbAccessor.createFilm(film);
-		Film returnedFilm = dbAccessor.createFilm(film);
-		System.out.println(returnedFilm +"sgsdg");
-		if (returnedFilm == null || "".equals(returnedFilm)) {
-			return "WEB-INF/errorPage.jsp";
+	public ModelAndView createFilm(Film film) throws SQLException {
+		ModelAndView mv = new ModelAndView();
+		boolean isFillmAddedSuccessful = dbAccessor.createFilm(film);
+
+		if (!isFillmAddedSuccessful ) {
+			mv.setViewName("WEB-INF/errorPage.jsp");
+			return mv;
+		}else {
+			mv.setViewName("WEB-INF/result.jsp");
+			return mv;
 		}
-		return "WEB-INF/result.jsp";
+
 	}
 
 	@RequestMapping(path = "deleteFilm.do", params = "filmId", method = RequestMethod.POST)

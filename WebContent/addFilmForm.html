@@ -3,17 +3,33 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>New Film</title>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+	integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+	crossorigin="anonymous"></script>
 </head>
 <body>
-<h3>New Film</h3>
-
-  <form action="addFilm.do" method="POST">
-    <input type="text" name="title" required placeholder="title"> 
-    <br/>
-    <input type="text" name="language_id" required placeholder="language_id"/> 
-    <br/>
- 
-  <input type="submit" value="Add Film" />
-  </form>
+	<div class="addFilmContainer">
+		<div class="mainsection justify-content-center">
+			<h3 class="header">New Film</h3>
+			<form action="addFilm.do" method="POST">
+				<div class="form-group">
+					<label class="add-film-search-label"></label>
+					<div class="input-group col-xs-12">
+						<input type="text" class="form-control" required name="title" placeholder="title"> <br />
+						<input type="text" required name="language_id" placeholder="language_id" />
+						<br />
+						<button type="submit" class="submit btn btn-primary">Add Film</button>
+					</div>
+				</div>
+			</form>
+		</div></div>
 </body>
 </html>
