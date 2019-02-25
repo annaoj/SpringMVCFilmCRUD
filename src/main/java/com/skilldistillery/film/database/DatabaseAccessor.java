@@ -18,6 +18,6 @@ public interface DatabaseAccessor {
   public boolean createFilm(Film film) throws SQLException;
   public boolean deleteFilm(int filmId) throws SQLException;
   public boolean saveFilm(Film film, int filmId) throws SQLException;
-  public Actor createActor(Actor actor) throws SQLException;
+  public boolean createActor(Actor actor) throws SQLException;
   
 }
