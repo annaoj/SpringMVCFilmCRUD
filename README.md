@@ -45,5 +45,6 @@ Requirements
 	* Abstraction
 	* Encapsulation
 * Spring Model View Controller
-* MySQL
+* MySQL C.R.U.D
 * Gradle
+* JDBC
