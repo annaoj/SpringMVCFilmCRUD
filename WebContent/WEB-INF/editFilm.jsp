@@ -41,21 +41,21 @@
 			<%-- <label>Actors:</label>
 			<input type="text" name="laCast" value="${film.laCast}"/> 
 			<br>  --%>
-			<select name="language_id" value="${film.language_id}"> 
-			<label>Language:</label>
-			<%-- <input type="text" name="language" value="${film.language}"/> 
-			<br>  --%>
 			 <%-- <label>Category:</label>
 			<input type="text" name="category" value="${film.category}"/> 
 			<br>  --%>
-			
+			<label>Language:</label>
+			<input type="text" name="language" value="${film.language}"/>  
+			<br/>  
+			<label>Language ID:</label>
+		<select name="language_id" value="${film.language_id}"> 
 			<!-- <option selected>Language Id</option> -->
 			<option value="1">English</option>
 			<option value="2">Italian</option>
 			<option value="3">Japanese</option>
 			<option value="4">Mandarin</option>
 			<option value="5">French</option>
-			<option value="6">German</option>
+			<option value="6">German</option> 
 		</select> <br> <input type="submit" name="filmId" value="UPDATE" />
 	</form>
 </body>
