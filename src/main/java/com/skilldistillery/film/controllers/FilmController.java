@@ -30,7 +30,6 @@ public class FilmController {
 
 	@RequestMapping(path = "FilmbyId.do", params = "filmId", method = RequestMethod.GET)
 	public ModelAndView getFilmById(int filmId) throws SQLException {
-		//System.out.println(filmId + "dfggggggggggggggggggggggggg");
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("film", dbAccessor.findFilmById(filmId));
 		mv.setViewName("WEB-INF/result.jsp");

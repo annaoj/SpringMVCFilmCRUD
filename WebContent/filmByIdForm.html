@@ -14,11 +14,19 @@
 <title>Films</title>
 </head>
 <body>
-  <h3>Films</h3>
-  <form  class="form-group" action="FilmbyId.do" method="GET">
-    Film ID:
-    <input type="text" required name="filmId"/> 
-    <input type="submit" value="Get Film by ID" />
-  </form>
+  	<div class="mainsection justify-content-center">
+		<div class="headerSection text-center">
+			<h3 class="header">Search film by Id</h3>
+		</div>
+		<div class="searchForm">
+		<form  class="form-group" action="FilmbyId.do" method="GET">
+				<div class="form-group">
+					<label class="searchlabel" for="search"> Film ID::</label>
+					   <input type="text" class="form-control" required name="filmId"/> 		
+						<button type="submit" class="addfilmBtn submit btn btn-primary">Get Film by ID</button>
+				</div>
+			</form>
+		</div>
+	</div>
 </body>
 </html>
