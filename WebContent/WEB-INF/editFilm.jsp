@@ -6,11 +6,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+	integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+	crossorigin="anonymous"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Update Film</title>
 </head>
 <body>
-		<h3>Add Film</h3>
+	<div class="mainsection justify-content-center">
+		<div class="headerSection text-center">
+			<h3 class="header">Edit Film</h3>
+		</div>
+		<div class="searchForm">
+	
 		<form action="saveFilm.do" method="POST" name="filmId">
 	
 			<label>Film ID:</label>
@@ -25,8 +39,11 @@
 			<label>Release Year:</label>
 				<input type="text" name="releaseYear" value="${film.release_year}"/> 
 				<br> 
-			<label>Rental Duration:</label>
+					<label>Rental Rate:</label>
 				<input type="text" name="rentalRate" value="${film.rental_rate}"/> 
+				<br> 
+			<label>Rental Duration:</label>
+				<input type="text" name="rental_duration" value="${film.rental_duration}"/> 
 				<br> 
 			<label>Length:</label>
 				<input type="text" name="length" value="${film.length}"/> 
@@ -58,5 +75,9 @@
 			</select> <br> 
 			<input type="submit" name="filmId" value="UPDATE" />
 			</form>
+			</div>
+
+
+	</div>
 	</body>
 </html>
