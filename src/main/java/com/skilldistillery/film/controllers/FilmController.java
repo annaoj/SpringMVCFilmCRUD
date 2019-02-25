@@ -2,17 +2,16 @@ package com.skilldistillery.film.controllers;
 
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.film.database.DatabaseAccessor;
+import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Film;
 
 @Controller
@@ -100,5 +99,18 @@ public class FilmController {
 		return mv;
 
 	}
+	@RequestMapping(path = "addActor.do", method = RequestMethod.POST)
+	public ModelAndView createActor(Actor actor) throws SQLException {
+		ModelAndView mv = new ModelAndView();
+		boolean isFillmAddedSuccessful = dbAccessor.createActor(actor);
+		
+		if (!isFillmAddedSuccessful ) {
+			mv.setViewName("");
+			return mv;
+		}else {
+			mv.setViewName("");
+			return mv;
+		}
 	
+}
 }
