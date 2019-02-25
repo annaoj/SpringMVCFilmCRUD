@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,10 +34,12 @@
 				 <input	type="text" name="title" value="${film.title}"/> 
 				<br>  
 			<label>Description:</label>
-				<input type="text" name="description" value="${film.description}"/>
+				<input class="textbox" type="text" name="description" value="${film.description}"/>
 				 <br>
 			<label>Release Year:</label>
 				<input type="text" name="releaseYear" value="${film.release_year}"/> 
+			<%-- 	<p>Formatted Date (2): <fmt:formatDate type = "date" 
+         value = "${film.release_year}" /></p> --%>
 				<br> 
 					<label>Rental Rate:</label>
 				<input type="text" name="rentalRate" value="${film.rental_rate}"/> 
@@ -72,7 +74,10 @@
 				<option value="4">Mandarin</option>
 				<option value="5">French</option>
 				<option value="6">German</option> 
-			</select> <br> 
+			</select> 
+			
+			
+			<br> 
 			<input type="submit" name="filmId" value="UPDATE" />
 			</form>
 			</div>

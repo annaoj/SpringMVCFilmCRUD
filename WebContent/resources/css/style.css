@@ -9,7 +9,11 @@ html{
 	font-family: cursive;
 	margin-top:50px;
 }
-
+/*  .textbox
+    {
+     height:420px;
+     width:200px;
+    } */
 .searchlabel{
 	float:left;
 }

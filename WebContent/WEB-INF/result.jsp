@@ -52,7 +52,7 @@
 						<li><strong>Language</strong> ${film.language}</li>
 <%-- 						<li><strong>Description: </strong>${film.description}</li>
  --%>						<li><strong>Release Year: </strong>${film.release_year}</li>
-						<li><strong>Rental Duration: </strong>${film.rental_rate}</li>
+						<li><strong>Rental Duration: </strong>${film.rental_duration}</li>
 						<li><strong>Rental Rate: </strong>${film.rental_rate}</li>
 						<li><strong>Length: </strong>${film.length}</li>
 						<li><strong>Replacement Cost: </strong>${film.replacement_cost}</li>
@@ -125,7 +125,7 @@
 <%-- 										<li><strong>Title:</strong> ${film.title}</li>
  --%>										<li><strong>Language:</strong> ${film.language}</li>
 										<li><strong>Release Year: </strong>${film.release_year}</li>
-										<li><strong>Rental Duration: </strong>${film.rental_rate}</li>
+										<li><strong>Rental Duration: </strong>${film.rental_duration}</li>
 										<li><strong>Rental Rate: </strong>${film.rental_rate}</li>
 										<li><strong>Length: </strong>${film.length}</li>
 										<li><strong>Replacement Cost: </strong>${film.replacement_cost}</li>
