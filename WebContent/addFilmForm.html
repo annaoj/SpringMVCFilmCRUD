@@ -16,20 +16,30 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
-	<div class="addFilmContainer">
-		<div class="mainsection justify-content-center">
-			<h3 class="header">New Film</h3>
+	<div class="mainsection justify-content-center">
+		<div class="headerSection text-center">
+			<h3 class="header">Add New Film</h3>
+		</div>
+		<div class="searchForm">
 			<form action="addFilm.do" method="POST">
 				<div class="form-group">
-					<label class="add-film-search-label"></label>
-					<div class="input-group col-xs-12">
-						<input type="text" class="form-control" required name="title" placeholder="title"> <br />
-						<input type="text" required name="language_id" placeholder="language_id" />
-						<br />
-						<button type="submit" class="submit btn btn-primary">Add Film</button>
-					</div>
+					<label class="searchlabel" for="search">Title:</label>
+					
+						<input type="text" class="form-control" required name="title"
+							placeholder="title"> 
+					<label class="searchlabel" for="Language">Language:</label>
+
+					<input type="text" class="form-control" required
+							name="language_id" placeholder="language_id" />
+
+						<button type="submit" class="addfilmBtn submit btn btn-primary">Add
+							Film</button>
+					
 				</div>
 			</form>
-		</div></div>
+		</div>
+
+
+	</div>
 </body>
 </html>
