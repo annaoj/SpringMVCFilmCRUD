@@ -56,8 +56,16 @@ input:focus, textarea:focus {
 	background-color:white;
 }
 
+body > div > div > h3 {
+	font-family: cursive;
+	margin-top:50px;
+}
 
-
+body > div > div > form > div {
 	
-
+}
+	
+.addFilmContainer{
+	
+}
 
