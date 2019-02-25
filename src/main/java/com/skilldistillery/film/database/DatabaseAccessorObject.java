@@ -350,7 +350,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		}
 		return true;
 	}
-	public Actor createActor(Actor actor) {
+	public boolean createActor(Actor actor) {
 		  Connection conn = null;
 		  
 		  try {
@@ -389,8 +389,8 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		        System.err.println("Error trying to rollback");
 		      }
 		    }
-		    throw new RuntimeException("Error inserting actor " + actor);
+		    return false;
 		  }
-		  return actor;
+		return true;
 		}
 }
