@@ -350,5 +350,46 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		}
 		return true;
 	}
-
+	public Actor createActor(Actor actor) {
+		  Connection conn = null;
+		  try {
+		    conn = DriverManager.getConnection(URL, user, pass);
+		    conn.setAutoCommit(false); // START TRANSACTION
+		    String sql = "INSERT INTO actor (first_name, last_name) "
+		                     + " VALUES (?,?)";
+		    PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+		    stmt.setString(1, actor.getFirst_name());
+		    stmt.setString(2, actor.getLast_name());
+		    int updateCount = stmt.executeUpdate();
+		    if (updateCount == 1) {
+		      ResultSet keys = stmt.getGeneratedKeys();
+		      if (keys.next()) {
+		        int newActorId = keys.getInt(1);
+		        actor.setId(newActorId);
+		        if (actor.getFilms() != null && actor.getFilms().size() > 0) {
+		          sql = "INSERT INTO film_actor (film_id, actor_id) VALUES (?,?)";
+		          stmt = conn.prepareStatement(sql);
+		          for (Film film : actor.getFilms()) {
+		            stmt.setInt(1, film.getId());
+		            stmt.setInt(2, newActorId);
+		            updateCount = stmt.executeUpdate();
+		          }
+		        }
+		      }
+		    } else {
+		      actor = null;
+		    }
+		    conn.commit(); // COMMIT TRANSACTION
+		  } catch (SQLException sqle) {
+		    sqle.printStackTrace();
+		    if (conn != null) {
+		      try { conn.rollback(); }
+		      catch (SQLException sqle2) {
+		        System.err.println("Error trying to rollback");
+		      }
+		    }
+		    throw new RuntimeException("Error inserting actor " + actor);
+		  }
+		  return actor;
+		}
 }
