@@ -40,7 +40,11 @@ public class FilmController {
 	@RequestMapping(path = "addFilm.do", method = RequestMethod.POST)
 	public String createFilm(Film film) throws SQLException {
 		dbAccessor.createFilm(film);
-System.out.println(dbAccessor.createFilm(film));
+		Film returnedFilm = dbAccessor.createFilm(film);
+		System.out.println(returnedFilm +"sgsdg");
+		if (returnedFilm == null || "".equals(returnedFilm)) {
+			return "WEB-INF/errorPage.jsp";
+		}
 		return "WEB-INF/result.jsp";
 	}
 

@@ -257,9 +257,11 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				}
 			}
 			throw new RuntimeException("Error inserting actor " + film);
+		}finally {
+			return filmObj;
 		}
 
-		return filmObj;
+		//return filmObj;
 	}
 
 	@Override
