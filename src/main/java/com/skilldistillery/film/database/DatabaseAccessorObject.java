@@ -352,6 +352,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	}
 	public Actor createActor(Actor actor) {
 		  Connection conn = null;
+		  
 		  try {
 		    conn = DriverManager.getConnection(URL, user, pass);
 		    conn.setAutoCommit(false); // START TRANSACTION

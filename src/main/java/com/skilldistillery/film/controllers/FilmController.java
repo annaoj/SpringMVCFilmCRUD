@@ -102,9 +102,9 @@ public class FilmController {
 	@RequestMapping(path = "addActor.do", method = RequestMethod.POST)
 	public ModelAndView createActor(Actor actor) throws SQLException {
 		ModelAndView mv = new ModelAndView();
-		boolean isFillmAddedSuccessful = dbAccessor.createActor(actor);
+		Actor isActormAddedSuccessful = dbAccessor.createActor(actor);
 		
-		if (!isFillmAddedSuccessful ) {
+		if (isActormAddedSuccessful == null ) {
 			mv.setViewName("");
 			return mv;
 		}else {
