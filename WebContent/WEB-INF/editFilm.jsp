@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Add Film</title>
+<title>Update Film</title>
 </head>
 <body>
 <h3>Add Film</h3>
