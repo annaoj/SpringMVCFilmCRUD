@@ -38,8 +38,6 @@
 				 <br>
 			<label>Release Year:</label>
 				<input type="text" name="releaseYear" value="${film.release_year}"/> 
-			<%-- 	<p>Formatted Date (2): <fmt:formatDate type = "date" 
-         value = "${film.release_year}" /></p> --%>
 				<br> 
 					<label>Rental Rate:</label>
 				<input type="text" name="rentalRate" value="${film.rental_rate}"/> 
@@ -56,12 +54,6 @@
 			<label>Rating:</label>
 				<input type="text" name="rating" value="${film.rating}"/> 
 				<br> 
-			<%-- <label>Actors:</label>
-			<input type="text" name="laCast" value="${film.laCast}"/> 
-			<br>  --%>
-			 <%-- <label>Category:</label>
-			<input type="text" name="category" value="${film.category}"/> 
-			<br>  --%>
 			<label>Language:</label>
 				<input type="text" name="language" value="${film.language}"/>  
 				<br/>  
